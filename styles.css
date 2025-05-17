@@ -1,4 +1,7 @@
 *::-webkit-scrollbar{display:none;}*::-webkit-scrollbar-thumb{display:none;} *{overscroll-behavior:none;} body{font-size:18px;background-color:var(--wn);border-collapse:collapse;border:none;margin:0;padding:0;border:0;border-spacing:0px;-webkit-touch-callout:none;user-select:none;height:100vh;            display: flex;
             justify-content: center;
             align-items: center;
+                                                                                                                   background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
