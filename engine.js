@@ -8,9 +8,6 @@ function load_game(type, file) {
             const resolutions = params.resolutions;
             
             // Apply styles to the main div
-            mainDiv.style.width = resolutions[0] + 'px';
-            mainDiv.style.height = resolutions[1] + 'px';
-            mainDiv.style.position = 'absolute';
             mainDiv.style.backgroundImage = `url(${resolutions[4]})`;
 
             bodyDiv.style.backgroundColor = resolutions[2];
