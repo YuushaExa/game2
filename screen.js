@@ -1,4 +1,4 @@
-function screenres(type, resolutions) {
+function screenres() {
     const mainDiv = document.getElementById('main');
 
     const baseWidth = 1920;
