@@ -1,24 +1,16 @@
-function load_game(type, file) {
-    fetch(file)
-        .then(response => response.json())
-        .then(data => {
-            const mainDiv = document.getElementById('main');
-            const params = data.parameters;
-            const resolutions = params.resolutions;
+function screenres(type, resolutions) {
+    const mainDiv = document.getElementById('main');
 
-            // Set base dimensions
-            const baseWidth = resolutions[0] || 1280;
-            const baseHeight = resolutions[1] || 720;
+    const baseWidth = 1920;
+    const baseHeight = 1080;
 
-            mainDiv.style.minWidth = baseWidth + 'px';
-            mainDiv.style.minHeight = baseHeight + 'px';
-            mainDiv.style.backgroundImage = `url(${resolutions[4]})`;
+    mainDiv.style.minWidth = baseWidth + 'px';
+    mainDiv.style.minHeight = baseHeight + 'px';
+    mainDiv.style.backgroundImage = `url("https://raw.githubusercontent.com/YuushaExa/game2/refs/heads/main/hd%20wallpapers%201080p%20forest__005.jpg")`;
 
-            // Initialize scaling
-            resizeGameContainer(baseWidth, baseHeight);
-            window.addEventListener('resize', () => resizeGameContainer(baseWidth, baseHeight));
-        })
-        .catch(console.error);
+    // Initialize scaling
+    resizeGameContainer(baseWidth, baseHeight);
+    window.addEventListener('resize', () => resizeGameContainer(baseWidth, baseHeight));
 }
 
 function resizeGameContainer(baseWidth, baseHeight) {
