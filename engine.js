@@ -15,9 +15,6 @@ function load_game(type, file) {
 
             bodyDiv.style.backgroundColor = resolutions[2];
             bodyDiv.style.backgroundImage = `url(${resolutions[3]})`;
-            bodyDiv.style.backgroundSize = 'cover';
-            bodyDiv.style.backgroundPosition = 'center';
-            bodyDiv.style.backgroundRepeat = 'no-repeat';
         })
         .catch(error => console.error('Error loading game:', error));
 }
