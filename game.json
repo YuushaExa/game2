@@ -1,8 +1,8 @@
 {
 	"parameters": {
     	"resolutions": [
-			800,
-			600,
+			1920,
+			1080,
 			"#000",
 			"",
 		"https://live.staticflickr.com/5205/5335499843_19c10aae74_c.jpg"
