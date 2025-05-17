@@ -1,4 +1,4 @@
-function load_game(type, file) {
+function screenres(type, file) {
     fetch(file)
         .then(response => response.json())
         .then(data => {
