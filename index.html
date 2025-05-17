@@ -2,15 +2,9 @@
 <html>
 <head>
     <title>Visual Novel Engine</title>
-    <link rel="stylesheet" href="engine.css">
 </head>
-<body>
-
-    <div id="main"></div>
-    
-    <!-- Load game data first -->
-    <script src="game.json"></script>
-    <!-- Then load the engine -->
-    <script src="engine.js"></script>
-</body>
+    <body onload="load_game('file','game.json')">
+        <div id='main' style='width:100%; height:90vh;'></div>
+        <script type="text/javascript" src="engine.js"></script>
+    </body>
 </html>
