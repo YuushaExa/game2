@@ -16,6 +16,7 @@ function load_game(type, file) {
             mainDiv.style.left = '50%';
             mainDiv.style.top = '50%';
             mainDiv.style.transformOrigin = 'center center';
+                        bodyDiv.style.backgroundImage = `url(${resolutions[4]})`;
             
             bodyDiv.style.backgroundColor = resolutions[2];
             bodyDiv.style.backgroundImage = `url(${resolutions[3]})`;
