@@ -13,8 +13,8 @@ function load_game(type, file) {
             
             // Apply initial styles
             mainDiv.style.position = 'absolute';
-            mainDiv.style.width = baseWidth + 'px';
-            mainDiv.style.height = baseHeight + 'px';
+            mainDiv.style.minWidth = baseWidth + 'px';
+            mainDiv.style.minHeight = baseHeight + 'px';
             mainDiv.style.left = '50%';
             mainDiv.style.top = '50%';
             mainDiv.style.transformOrigin = 'left top';
