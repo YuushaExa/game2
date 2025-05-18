@@ -1,40 +1,49 @@
 function screenres() {
     const mainDiv = document.getElementById('main');
     const bodyDiv = document.body;
-    const ASPECT_RATIO = 16 / 9; // Aspect ratio constant
+    const ASPECT_RATIO = 16 / 9; // 16:9 aspect ratio constant
     
+    // Set base dimensions (these can be any size that matches 16:9)
+    const baseWidth = 1600; // Example base width
+    const baseHeight = baseWidth / ASPECT_RATIO; // Calculated height
+    
+    mainDiv.style.width = `${baseWidth}px`;
+    mainDiv.style.height = `${baseHeight}px`;
+    mainDiv.style.position = 'absolute';
     mainDiv.style.backgroundImage = `url("https://raw.githubusercontent.com/YuushaExa/game2/refs/heads/main/Image_fx%20(1).jpg")`;
     bodyDiv.style.backgroundColor = '#000';
-    
-    // Initialize scaling
-    resizeGameContainer(ASPECT_RATIO);
-    window.addEventListener('resize', () => resizeGameContainer(ASPECT_RATIO));
-}
 
-function resizeGameContainer(aspectRatio) {
-    const mainDiv = document.getElementById('main');
-    const windowWidth = window.innerWidth;
-    const windowHeight = window.innerHeight;
-    
-    // Calculate dimensions to maintain aspect ratio
-    let width, height;
-    
-    if (windowWidth / windowHeight > aspectRatio) {
-        // Window is wider than 16:9 - constrain by height
-        height = windowHeight;
-        width = height * aspectRatio;
-    } else {
-        // Window is taller than 16:9 - constrain by width
-        width = windowWidth;
-        height = width / aspectRatio;
+    function updateScale() {
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
+        
+        // Calculate available space's aspect ratio
+        const windowAspect = windowWidth / windowHeight;
+        
+        // Determine scale factor
+        let scale;
+        if (windowAspect > ASPECT_RATIO) {
+            // Window is wider than 16:9 - scale based on height
+            scale = windowHeight / baseHeight;
+        } else {
+            // Window is taller than 16:9 - scale based on width
+            scale = windowWidth / baseWidth;
+        }
+        
+        // Apply scaling
+        mainDiv.style.transform = `scale(${scale})`;
+        mainDiv.style.transformOrigin = 'top left';
+        
+        // Center the scaled element
+        const scaledWidth = baseWidth * scale;
+        const scaledHeight = baseHeight * scale;
+        mainDiv.style.left = `${(windowWidth - scaledWidth) / 2}px`;
+        mainDiv.style.top = `${(windowHeight - scaledHeight) / 2}px`;
     }
-    
-    // Apply dimensions and center
-    mainDiv.style.width = `${width}px`;
-    mainDiv.style.height = `${height}px`;
-    mainDiv.style.position = 'absolute';
-    mainDiv.style.left = `${(windowWidth - width) / 2}px`;
-    mainDiv.style.top = `${(windowHeight - height) / 2}px`;
+
+    // Initial scale update
+    updateScale();
+    window.addEventListener('resize', updateScale);
 }
 
 screenres();
