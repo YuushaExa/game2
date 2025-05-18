@@ -1,40 +1,49 @@
 function screenres() {
     const mainDiv = document.getElementById('main');
     const bodyDiv = document.body;
-    const ASPECT_RATIO = 16 / 9; // 16:9 aspect ratio
+    const ASPECT_RATIO = 16 / 9; // 16:9 aspect ratio constant
+    
+    // Set base dimensions (these can be any size that matches 16:9)
+    const baseWidth = 1600; // Example base width
+    const baseHeight = baseWidth / ASPECT_RATIO; // Calculated height
+    
+    mainDiv.style.width = `${baseWidth}px`;
+    mainDiv.style.height = `${baseHeight}px`;
+    mainDiv.style.position = 'absolute';
+    mainDiv.style.backgroundImage = `url("https://raw.githubusercontent.com/YuushaExa/game2/refs/heads/main/Image_fx%20(1).jpg")`;
+    bodyDiv.style.backgroundColor = '#000';
 
-    // Instead, dynamically calculate them based on the current window size
-    function updateDimensions() {
+    function updateScale() {
         const windowWidth = window.innerWidth;
         const windowHeight = window.innerHeight;
         
-        // Calculate base dimensions dynamically
-        let baseWidth, baseHeight;
+        // Calculate available space's aspect ratio
+        const windowAspect = windowWidth / windowHeight;
         
-        if (windowWidth / windowHeight > ASPECT_RATIO) {
-            // Window is wider than 16:9 → scale based on height
-            baseHeight = windowHeight;
-            baseWidth = baseHeight * ASPECT_RATIO;
+        // Determine scale factor
+        let scale;
+        if (windowAspect > ASPECT_RATIO) {
+            // Window is wider than 16:9 - scale based on height
+            scale = windowHeight / baseHeight;
         } else {
-            // Window is taller than 16:9 → scale based on width
-            baseWidth = windowWidth;
-            baseHeight = baseWidth / ASPECT_RATIO;
+            // Window is taller than 16:9 - scale based on width
+            scale = windowWidth / baseWidth;
         }
-
-        // Apply the dynamic base dimensions
-        mainDiv.style.width = `${baseWidth}px`;
-        mainDiv.style.height = `${baseHeight}px`;
-        mainDiv.style.position = 'absolute';
-        mainDiv.style.backgroundImage = `url("https://raw.githubusercontent.com/YuushaExa/game2/refs/heads/main/Image_fx%20(1).jpg")`;
-        mainDiv.style.backgroundSize = 'cover'; // Ensure the background fits
-        bodyDiv.style.backgroundColor = '#000';
-     mainDiv.style.left = '0';
-        mainDiv.style.top = '0';
+        
+        // Apply scaling
+        mainDiv.style.transform = `scale(${scale})`;
+        mainDiv.style.transformOrigin = 'top left';
+        
+        // Center the scaled element
+        const scaledWidth = baseWidth * scale;
+        const scaledHeight = baseHeight * scale;
+        mainDiv.style.left = `${(windowWidth - scaledWidth) / 2}px`;
+        mainDiv.style.top = `${(windowHeight - scaledHeight) / 2}px`;
     }
 
-    // Initial setup + update on resize
-    updateDimensions();
-    window.addEventListener('resize', updateDimensions);
+    // Initial scale update
+    updateScale();
+    window.addEventListener('resize', updateScale);
 }
 
 screenres();
