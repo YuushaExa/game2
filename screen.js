@@ -14,22 +14,14 @@ function screenres() {
 
 function resizeGameContainer(baseWidth, baseHeight) {
     const mainDiv = document.getElementById('main');
-    if (!mainDiv) return;
-
     const windowWidth = window.innerWidth;
     const windowHeight = window.innerHeight;
 
     // Calculate scale while maintaining aspect ratio
     const scale = Math.min(windowWidth / baseWidth, windowHeight / baseHeight);
 
-    // Apply transform
-    mainDiv.style.transform = `scale(${scale})`;
-    
-    // Center the element
-    mainDiv.style.left = '50%';
-    mainDiv.style.top = '50%';
-    mainDiv.style.transform = `translate(-50%, -50%) scale(${scale})`;
-}
-
+    // Apply transform with anti-bleeding technique
+    mainDiv.style.transform = `scale(${scale}) translate(calc(50vw/${scale} - 50%), calc(50vh/${scale} - 50%))`;
+};
 
 screenres()
