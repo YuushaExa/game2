@@ -1,12 +1,13 @@
 function screenres() {
     const mainDiv = document.getElementById('main');
+    const bodyDiv = document.body;
     const baseWidth = 1920;
     const baseHeight = 1080;
 
     mainDiv.style.minWidth = baseWidth + 'px';
     mainDiv.style.minHeight = baseHeight + 'px';
     mainDiv.style.backgroundImage = `url("https://raw.githubusercontent.com/YuushaExa/game2/refs/heads/main/hd%20wallpapers%201080p%20forest__005.jpg")`;
-
+    bodyDiv.style.backgroundColor = #000;
     // Initialize scaling
     resizeGameContainer(baseWidth, baseHeight);
     window.addEventListener('resize', () => resizeGameContainer(baseWidth, baseHeight));
