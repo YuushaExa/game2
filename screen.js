@@ -28,7 +28,8 @@ function screenres() {
         mainDiv.style.backgroundImage = `url("https://raw.githubusercontent.com/YuushaExa/game2/refs/heads/main/Image_fx%20(1).jpg")`;
         mainDiv.style.backgroundSize = 'cover'; // Ensure the background fits
         bodyDiv.style.backgroundColor = '#000';
-
+     mainDiv.style.left = '0';
+        mainDiv.style.top = '0';
     }
 
     // Initial setup + update on resize
