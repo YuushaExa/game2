@@ -1,7 +1,7 @@
 function screenres() {
     const mainDiv = document.getElementById('main');
     const bodyDiv = document.body;
-    const aspectRatio = 21 / 9;
+    const aspectRatio = 16 / 9;
 
     mainDiv.style.backgroundImage = `url("https://raw.githubusercontent.com/YuushaExa/game2/refs/heads/main/Image_fx%20(1).jpg")`;
     bodyDiv.style.backgroundColor = '#000'; // Fixed: added quotes around color
