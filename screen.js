@@ -34,6 +34,9 @@ function screenres() {
         mainDiv.style.transform = `scale(${scale})`;
         mainDiv.style.transformOrigin = 'top left';
         
+             if (window.devicePixelRatio > 1) {
+            mainDiv.style.imageRendering = 'crisp-edges';
+        }
         // Center the scaled element
         const scaledWidth = baseWidth * scale;
         const scaledHeight = baseHeight * scale;
