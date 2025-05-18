@@ -16,12 +16,16 @@ function resizeGameContainer(baseWidth, baseHeight) {
     const mainDiv = document.getElementById('main');
     const windowWidth = window.innerWidth;
     const windowHeight = window.innerHeight;
-
+    
     // Calculate scale while maintaining aspect ratio
     const scale = Math.min(windowWidth / baseWidth, windowHeight / baseHeight);
-
-    // Apply transform with anti-bleeding technique
-    mainDiv.style.transform = `scale(${scale}) translate(calc(50vw/${scale} - 50%), calc(50vh/${scale} - 50%))`;
-};
+    
+    // Apply the scale
+    mainDiv.style.transform = `scale(${scale})`;
+    
+    // Center the game
+    mainDiv.style.left = `${(windowWidth - baseWidth * scale) / 2}px`;
+    mainDiv.style.top = `${(windowHeight - baseHeight * scale) / 2}px`;
+}
 
 screenres()
