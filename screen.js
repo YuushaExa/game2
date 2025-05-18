@@ -3,9 +3,9 @@ function screenres() {
     const bodyDiv = document.body;
     const ASPECT_RATIO = 16 / 9; // 16:9 aspect ratio constant
     
-    // Set base dimensions (these can be any size that matches 16:9)
-    const baseWidth = 1600; // Example base width
-    const baseHeight = baseWidth / ASPECT_RATIO; // Calculated height
+    // Set base height based on window width to maintain aspect ratio
+    const baseWidth = window.innerWidth;
+    const baseHeight = baseWidth / ASPECT_RATIO;
     
     mainDiv.style.width = `${baseWidth}px`;
     mainDiv.style.height = `${baseHeight}px`;
