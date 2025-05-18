@@ -15,7 +15,7 @@ function screenres() {
     mainDiv.style.width = `${baseWidth}px`;
     mainDiv.style.height = `${baseHeight}px`;
     mainDiv.style.position = 'absolute';
-    mainDiv.style.backgroundImage = `url("https://example.com/bg.jpg")`;
+    mainDiv.style.backgroundImage = `url("https://raw.githubusercontent.com/YuushaExa/game2/refs/heads/main/Image_fx%20(1).jpg")`;
     mainDiv.style.willChange = 'transform'; // Optimize for GPU
     bodyDiv.style.backgroundColor = '#000';
     bodyDiv.style.overflow = 'hidden'; // Prevent scrollbars
