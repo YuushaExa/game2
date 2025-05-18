@@ -1,42 +1,32 @@
 function screenres() {
     const mainDiv = document.getElementById('main');
     const bodyDiv = document.body;
-    const aspectRatio = 16 / 9;
+    const baseWidth = 1920;
+    const baseHeight = 1080;
 
+    mainDiv.style.minWidth = baseWidth + 'px';
+    mainDiv.style.minHeight = baseHeight + 'px';
     mainDiv.style.backgroundImage = `url("https://raw.githubusercontent.com/YuushaExa/game2/refs/heads/main/Image_fx%20(1).jpg")`;
-    bodyDiv.style.backgroundColor = '#000'; // Fixed: added quotes around color
-    
+    bodyDiv.style.backgroundColor = '#000';
     // Initialize scaling
-    resizeGameContainer(aspectRatio);
-    window.addEventListener('resize', () => resizeGameContainer(aspectRatio));
+    resizeGameContainer(baseWidth, baseHeight);
+    window.addEventListener('resize', () => resizeGameContainer(baseWidth, baseHeight));
 }
 
-function resizeGameContainer(aspectRatio) {
+function resizeGameContainer(baseWidth, baseHeight) {
     const mainDiv = document.getElementById('main');
     const windowWidth = window.innerWidth;
     const windowHeight = window.innerHeight;
     
-    // Calculate optimal dimensions based on window size and aspect ratio
-    let width, height;
+    // Calculate scale while maintaining aspect ratio
+    const scale = Math.min(windowWidth / baseWidth, windowHeight / baseHeight);
     
-    if (windowWidth / windowHeight > aspectRatio) {
-        // Window is wider than 16:9 - scale based on height
-        height = windowHeight;
-        width = height * aspectRatio;
-    } else {
-        // Window is taller than 16:9 - scale based on width
-        width = windowWidth;
-        height = width / aspectRatio;
-    }
-    
-    // Apply the dimensions
-    mainDiv.style.width = `${width}px`;
-    mainDiv.style.height = `${height}px`;
+    // Apply the scale
+    mainDiv.style.transform = `scale(${scale})`;
     
     // Center the game
-    mainDiv.style.position = 'absolute';
-    mainDiv.style.left = `${(windowWidth - width) / 2}px`;
-    mainDiv.style.top = `${(windowHeight - height) / 2}px`;
+    mainDiv.style.left = `${(windowWidth - baseWidth * scale) / 2}px`;
+    mainDiv.style.top = `${(windowHeight - baseHeight * scale) / 2}px`;
 }
 
-screenres();
+screenres()
