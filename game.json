@@ -1,51 +1,80 @@
 {
-  "scenes": [
-    {
-      "id": "home_screen",
-"background_color": "#90ff00",
-"background_image": " https://raw.githubusercontent.com/YuushaExa/game2/refs/heads/main/Image_fx%20(1).jpg",
-	    "dialogue": [
-      {
-        "character": "protagonist",
-        "text": "I can't believe it's already the last day of school..."
-      },
-      {
-        "character": "love_interest",
-        "text": "I know... I'm going to miss this place."
+  "scenes": {
+    "home_screen": {
+      "default": {
+        "background_color": "#90ff00",
+        "background_image": "https://raw.githubusercontent.com/YuushaExa/game2/refs/heads/main/Image_fx%20(1).jpg",
+        "dialogs": [
+          {
+            "name": "char2",
+            "text": {
+              "en": "nnnnnmnm",
+              "ru": "fvfv"
+            },
+            "background_image": "https://raw.githubusercontent.com/YuushaExa/game2/refs/heads/main/hd%20wallpapers%201080p%20forest__005.jpg"
+          },
+          {
+            "name": "bnbnbn",
+            "text": {
+              "en": "bnnnbbnbn",
+              "ru": "fvfvf"
+            }
+          },
+          {
+            "name": "bnbnbn",
+            "text": {
+              "en": "rvrv",
+              "ru": "vfv"
+            }
+          }
+        ],
+        "choices": [
+          {
+            "text": "Tell him you'll miss him too2",
+            "next_scene": "2"
+          },
+          {
+            "text": "Stay silent1",
+            "next_scene": "1"
+          }
+        ]
       }
-    ],
-    "choices": [
-      {
-        "text": "Tell him you'll miss him too",
-        "next_scene": "confession"
-      },
-      {
-        "text": "Stay silent",
-        "next_scene": "1"
+    },
+    "1": {
+      "default": {
+        "background_color": "#90ff20",
+        "background_image": "https://raw.githubusercontent.com/YuushaExa/game2/refs/heads/main/Image_fx%20(1).jpg",
+        "dialogs": [
+          {
+            "name": "charNextScene",
+            "text": {
+              "en": "Scene1",
+              "ru": "fvfv"
+            },
+            "background_image": "https://raw.githubusercontent.com/YuushaExa/game2/refs/heads/main/hd%20wallpapers%201080p%20forest__005.jpg"
+          }
+        ]
       }
-    ],
-},
- {
-      "id": "1",
-      "background": "school_classroom.png",
-	     "dialogue": [
-      {
-        "character": "protagonist",
-        "text": "I can't believe it's already the last day of school..."
-      },
-      {
-        "character": "love_interest",
-        "text": "I know... I'm going to miss this place."
+    },
+
+	   "2": {
+      "default": {
+        "background_color": "#90ff20",
+        "background_image": "https://raw.githubusercontent.com/YuushaExa/game2/refs/heads/main/Image_fx%20(1).jpg",
+        "dialogs": [
+          {
+            "name": "charNextScene",
+            "text": {
+              "en": "Scene2",
+              "ru": "fvfv"
+            },
+            "background_image": "https://raw.githubusercontent.com/YuushaExa/game2/refs/heads/main/hd%20wallpapers%201080p%20forest__005.jpg"
+          }
+        ]
       }
-    ],
-    "choices": [
-      {
-        "text": "2Tell him you'll miss him too",
-        "next_scene": "confession"
-      },
-      {
-        "text": "2Stay silent",
-        "next_scene": "home_screen"
-      }
-    ],
+    }
+
+
+	  
+  }
 }
