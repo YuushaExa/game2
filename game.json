@@ -1,11 +1,51 @@
 {
-	"parameters": {
-    	"resolutions": [
-			1920,
-			1080,
-			"#000",
-			"",
-		"https://raw.githubusercontent.com/YuushaExa/game2/refs/heads/main/hd%20wallpapers%201080p%20forest__005.jpg"
-		]
-  }
+  "scenes": [
+    {
+      "id": "home_screen",
+"background_color": "#90ff00",
+"background_image": " https://raw.githubusercontent.com/YuushaExa/game2/refs/heads/main/Image_fx%20(1).jpg",
+	    "dialogue": [
+      {
+        "character": "protagonist",
+        "text": "I can't believe it's already the last day of school..."
+      },
+      {
+        "character": "love_interest",
+        "text": "I know... I'm going to miss this place."
+      }
+    ],
+    "choices": [
+      {
+        "text": "Tell him you'll miss him too",
+        "next_scene": "confession"
+      },
+      {
+        "text": "Stay silent",
+        "next_scene": "1"
+      }
+    ],
+},
+ {
+      "id": "1",
+      "background": "school_classroom.png",
+	     "dialogue": [
+      {
+        "character": "protagonist",
+        "text": "I can't believe it's already the last day of school..."
+      },
+      {
+        "character": "love_interest",
+        "text": "I know... I'm going to miss this place."
+      }
+    ],
+    "choices": [
+      {
+        "text": "2Tell him you'll miss him too",
+        "next_scene": "confession"
+      },
+      {
+        "text": "2Stay silent",
+        "next_scene": "home_screen"
+      }
+    ],
 }
